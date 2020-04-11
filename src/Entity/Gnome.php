@@ -13,6 +13,7 @@ use App\Entity\User;
  * A Gnome
  *
  * @ORM\Entity(repositoryClass="App\Repository\GnomeRepository")
+ * @ORM\EntityListeners({"App\EventListener\Gnome\GnomeSetOwnerListener"})
  * 
  * @ApiResource(
  *      attributes={

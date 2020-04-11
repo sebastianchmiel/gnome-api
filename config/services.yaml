@@ -30,3 +30,6 @@ services:
         decorates: 'api_platform.swagger.normalizer.documentation'
         arguments: ['@App\Swagger\SwaggerDecorator.inner']
         autoconfigure: false
+
+    App\EventListener\Gnome\GnomeSetOwnerListener:
+        tags: [doctrine.orm.entity_listener]
