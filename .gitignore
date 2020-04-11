@@ -9,6 +9,7 @@
 /var/
 /vendor/
 /src/Migrations/
+/public/media/
 ###< symfony/framework-bundle ###
 
 ###> lexik/jwt-authentication-bundle ###
