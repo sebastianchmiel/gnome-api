@@ -5,7 +5,8 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
-use ApiPlatform\Core\Annotation\{ApiResource, ApiProperty};
+use ApiPlatform\Core\Annotation\{ApiResource, ApiProperty, ApiFilter};
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Validator\Gnome\IsValidStrength;
 use App\Entity\User;
 
@@ -28,11 +29,12 @@ use App\Entity\User;
  *          "post"
  *      },
  *      itemOperations={
- *          "get",
- *          "patch",
- *          "delete",
+ *          "get"={"security"="object.owner == user", "security_message"="Sorry, but you are not the gnome owner."},
+ *          "patch"={"security_post_denormalize"="object.owner == user", "security_post_denormalize_message"="Sorry, but you are not the actual gnome owner."},
+ *          "delete"={"security_post_denormalize"="object.owner == user", "security_post_denormalize_message"="Sorry, but you are not the actual gnome owner."},
  *      } 
  * )
+ * @ApiFilter(SearchFilter::class, properties={"race": "exact"})
  */
 class Gnome
 {
