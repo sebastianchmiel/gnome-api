@@ -32,4 +32,15 @@ final class RaceType extends EnumType
         self::FIRE => self::FIRE,
         self::SKY => self::SKY,
     ];
+
+    /**
+     * check if race is valid
+     *
+     * @param string|null $race
+     * 
+     * @return boolean
+     */
+    public function isValid(?string $race): bool {
+        return $race && isset($this->values[$race]);
+    }
 }

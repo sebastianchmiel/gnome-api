@@ -9,6 +9,7 @@ use ApiPlatform\Core\Annotation\{ApiResource, ApiProperty, ApiFilter};
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Validator\Gnome\IsValidStrength;
 use App\Entity\User;
+use App\Controller\Gnome\GetMyGnomesAction;
 
 /**
  * A Gnome
@@ -26,7 +27,12 @@ use App\Entity\User;
  *      },
  *      collectionOperations={
  *          "get",
- *          "post"
+ *          "post",
+ *          "getMy"={
+ *              "method"="GET",
+ *              "path"="/gnomes/my",
+ *              "controller"=GetMyGnomesAction::class,
+ *          }
  *      },
  *      itemOperations={
  *          "get"={"security"="object.owner == user", "security_message"="Sorry, but you are not the gnome owner."},
