@@ -1,7 +1,7 @@
 # Gnome REST API
 
 App with simple REST API to manage entities of Gnomes. 
-Built on Symfony 5 and the API platform. JWT authentication is used for authentication.
+Built on Symfony 5 and the API Platform. JWT authentication is used for authentication.
 
 ### How to run?
 1. Clone this repository:
@@ -20,6 +20,10 @@ php bin/console doctrine:database:create
 php bin/console make:migration
 ```
 6. Generate the SSH keys for authorisation. [Instruction](https://github.com/lexik/LexikJWTAuthenticationBundle/blob/master/Resources/doc/index.md#generate-the-ssh-keys).
-7. Open in browser REST API documentation e.g http://localhost/gnome-api/public/index.php/api/docs 
-8. Now you can execute REST API requests!
+7. Create user:
+```
+php bin/console user:create
+```
+8. Open in browser REST API documentation e.g http://localhost/gnome-api/public/index.php/api/docs 
+9. Now you can execute REST API requests!
 
